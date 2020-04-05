@@ -1,12 +1,15 @@
 import Sequelize from 'sequelize';
 
 const sequelize = new Sequelize(
-  process.env.DATABASE,
-  process.env.DATABASE_USER,
-  process.env.DATABASE_PASSWORD,
-  {
+  'd506dmpebgtn40', 'pklvlbabebheru', '3b809317c45d1068a6e1140d06856d367cf7eab3130de9e330250e1b5d4a82ba', {
+    host: 'ec2-34-206-252-187.compute-1.amazonaws.com',
     dialect: 'postgres',
-  },
+    dialectOptions: {
+      ssl: {
+        rejectUnauthorized: false
+      }
+   }
+ }
 );
 
 const models = {

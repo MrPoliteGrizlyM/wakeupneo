@@ -1,7 +1,7 @@
 import 'dotenv/config'
 import express from "express"
 import path from "path"
-import models, { sequelize } from './src/entities/config'
+import models, { sequelize } from './src/models/config'
 
 var app = express();
 
@@ -9,11 +9,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/api/login', (req, res) => {
+app.get('/api/login', async (req, res) => {
   const username = req.body.username ? req.body.username : '';
   const password = req.body.password ? req.body.password : '';
   
-  models.User.findOne({
+  await models.User.findOne({
     where: {
        username: username,
        password: password
