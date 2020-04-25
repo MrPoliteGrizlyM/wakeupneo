@@ -1,6 +1,6 @@
 use termion::input::TermRead;
 use std::io::{Write, stdout, stdin};
-use crate::services::lib::App;
+use crate::util::lib::App;
 
 pub fn reg(app: &mut App) {
     // let stdout = stdout();
